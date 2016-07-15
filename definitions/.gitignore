@@ -1,12 +1,6 @@
-logs
 project/project
 project/target
 target
-tmp
-.history
-dist
-bower_components
-node_modules
 .idea
 .tmp
 
@@ -36,6 +30,3 @@ bin/
 
 # OSX
 .DS_Store
-
-# PGP keys
-*.gpg

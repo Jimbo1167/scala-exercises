@@ -1,0 +1,26 @@
+language: scala
+sudo: required
+addons:
+  - postgresql: "9.3"
+services:
+  - postgresql
+before_script:
+  - ./scripts/create_test_db
+scala:
+  - 2.11.7
+jdk:
+  - oraclejdk8
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+env:
+  global:
+    JAVA_OPTS=-Xmx2g
+    SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:MaxPermSize=512m"
+install:
+  - gem install sass
+script:
+  - sbt testAll
+after_success:
+  - bash deploy.sh
